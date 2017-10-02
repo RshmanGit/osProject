@@ -30,37 +30,79 @@
             <div class="row align-items-start">
             
                 <div class="col-8">
-                
-                    <div class="card">
-                        <div class="card-header">
-                            Featured
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Special title treatment</h4>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div id="accordion" role="tablist">
+                        <div class="card text-white bg-dark mb-3">
+                            
+                            
+                            <div class="card-header text-white bg-info mb-3" role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color:white">
+                                        Back-up Cards
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">
+                                <div class="card text-white bg-dark mb-3">
+                                    <div class="card-header text-white bg-info mb-3">
+                                        Featured
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Special title treatment</h4>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="#" class="btn btn-info">Go somewhere</a>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            
+                            <div class="card-header text-white bg-info mb-3" role="tab" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color:white">
+                                        Create a back-up card
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <form>
+                                      <div class="form-group">
+                                        <label for="back-up-name">Back-up card title</label>
+                                        <input type="text" class="form-control" id="back-up-name" aria-describedby="title-help" placeholder="Enter title" name="name">
+                                        <small id="title-help" class="form-text text-muted">Choose a name that best describes you back-up</small>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="back-up-source">Back-up Source</label>
+                                        <input type="text" class="form-control" id="back-up-source" aria-describedby="source-help" placeholder="Enter the path to source" name="source">
+                                        <small id="source-help" class="form-text text-muted">Type the path to your source folder</small>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="back-up-dest">Back-up Destination</label>
+                                        <input type="text" class="form-control" id="back-up-dest" aria-describedby="dest-help" placeholder="Enter the path to destination" name="dest">
+                                        <small id="dest-help" class="form-text text-muted">Type the path to your destination folder</small>
+                                      </div>
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                            
+                            
                         </div>
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            Featured
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">Special title treatment</h4>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    
-                </div>
+                </div>                
                 
                 <div class="col-4">
                 
                     <div class="row align-items-start">
                     
-                        <div class="card">
-                            <div class="card-body">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header text-white bg-info mb-3">
+                                Service Control Panel
+                            </div>
+                            <div class="card-body ">
                                 <div class="row">
                                     <div class = "col">
                                         <button type="button" class="btn btn-light btn-lg">Large button</button>
@@ -80,9 +122,11 @@
                     <div class="row align-items-start">
                     
                         <div class = "col">
-                            <div class="card" style="width: 20rem;">
+                            <div class="card text-white bg-dark mb-3" style="width: 20rem;">
+                                <div class="card-header text-white bg-info mb-3">
+                                    Service Settings
+                                </div>
                                 <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
                                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <a href="#" class="card-link">Card link</a>
