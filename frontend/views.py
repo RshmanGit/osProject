@@ -21,6 +21,7 @@ def login(request):
     return HttpResponse(html.render(context, request))
 
 def runService(request):
+    print("[+] Starting service")
     thisSwitch = Switch
     thisSwitch.startService()
 
@@ -32,16 +33,17 @@ def runService(request):
     status = thisSwitch.retStatus()
     html = loader.get_template('frontend/index.html')
     backupCards = backupFolder.objects.all()
-    context = {'status': status.upper(), 'backupCards': bcakupCards}
+    context = {'status': status.upper(), 'backupCards': backupCards}
     return HttpResponse(html.render(context, request))
 
 def stopService(request):
+    print("[+] Stopping service")
     thisSwitch = Switch
     thisSwitch.stopService()
     status = thisSwitch.retStatus()
     html = loader.get_template('frontend/index.html')
     backupCards = backupFolder.objects.all()
-    context = {'status': status.upper(), 'backupCards': bcakupCards}
+    context = {'status': status.upper(), 'backupCards': backupCards}
     return HttpResponse(html.render(context, request))
 
 def home(request):
@@ -49,5 +51,5 @@ def home(request):
     status = thisSwitch.retStatus()
     html = loader.get_template('frontend/index.html')
     backupCards = backupFolder.objects.all()
-    context = {'status': status.upper(), 'backupCards': bcakupCards}
+    context = {'status': status.upper(), 'backupCards': backupCards}
     return HttpResponse(html.render(context, request))

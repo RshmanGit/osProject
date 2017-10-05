@@ -13,14 +13,19 @@ class service:
     def __init__(self, switch):
         self.switch = switch
 
-    def runThread(self):
+    def runThreads(self):
+        print('[+] Service Started')
         backups = backupFolder.objects.all()
-        #while(self.switch.isOn()):
-        results = backupFolder.objects.all()
-        for i in results:
-            thread = backupThread(i.id, i.name, i.path, i.backupPath)
-            thread.start()
+        while(self.switch.isOn()):
+            results = backupFolder.objects.all()
+            for i in results:
+                thread = backupThread(i.id, i.name, i.path, i.backupPath)
+                thread.start()
+            time.sleep(20)
 
+    def runThread(self):
+        thread.start_new_thread(self.runThreads,())
+        return 0
 
 class backupThread(threading.Thread):
 
