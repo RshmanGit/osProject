@@ -11,7 +11,7 @@
     <body>
         
         <nav class="navbar navbar-dark" style="background-color: #009688">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/home">
                 <button type="button" class="btn btn-dark">SafeLockUp</button>
             </a>
             <span class="navbar-text">
@@ -44,16 +44,23 @@
 
                             <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                               <div class="card-body">
+                                  
+                                {% for backup in backupCards %}
+                                  
                                 <div class="card text-white bg-dark mb-3">
                                     <div class="card-header text-white bg-info mb-3">
-                                        Featured
+                                        Back-up id: {{ backup.id }} : {{ backup.name }}
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Special title treatment</h4>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="#" class="btn btn-info">Go somewhere</a>
+                                        <h4 class="card-title">{{ backup.name }}</h4>
+                                        <p class="card-text"><label>Source path: </label><div class="alert alert-info" role="alert">{{ backup.path }}</div></p>
+                                        <p class="card-text"><label>Destination path: </label><div class="alert alert-info" role="alert">{{ backup.backupPath }}</div></p>
+                                        <a href="#" class="btn btn-info">Details</a>
                                     </div>
                                 </div>
+                                  
+                                {% endfor %}
+                                  
                               </div>
                             </div>
                             
@@ -96,20 +103,25 @@
                 
                 <div class="col-4">
                 
-                    <div class="row align-items-start">
+                    <div class="row">
                     
                         <div class="card text-white bg-dark mb-3">
                             <div class="card-header text-white bg-info mb-3">
-                                Service Control Panel
+                                Service Status: 
+                                {% if status == "ON" or status == "OFF" %}
+                                    {{ status }}
+                                {% else %}
+                                    OFF
+                                {% endif %}
                             </div>
                             <div class="card-body ">
                                 <div class="row">
                                     <div class = "col">
-                                        <button type="button" class="btn btn-light btn-lg">Large button</button>
+                                        <a href="/on"><button type="button" class="btn btn-light btn-lg">Start Service</button></a>
                                     </div>
 
                                     <div class = "col">                        
-                                        <button type="button" class="btn btn-danger btn-lg">Large button</button>
+                                        <a href="/off"><button type="button" class="btn btn-danger btn-lg">Stop Service</button></a>
                                     </div>
                                 </div>
                             </div>
