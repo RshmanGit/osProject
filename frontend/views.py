@@ -53,3 +53,24 @@ def home(request):
     backupCards = backupFolder.objects.all()
     context = {'status': status.upper(), 'backupCards': backupCards}
     return HttpResponse(html.render(context, request))
+
+def addcard(request):
+    thisSwitch = Switch
+    status = ""
+    status = thisSwitch.retStatus()
+
+    lastid = backupFolder.objects.all().order_by('-id')[0].id
+
+    #/addcard?name=yo&source=yo&dest=yo
+    newcard = backupFolder()
+    newcard.id = lastid+1
+    newcard.name = request.GET['name']
+    newcard.path = request.GET['source']
+    newcard.backupPath = request.GET['dest']
+
+    newcard.save()
+
+    html = loader.get_template('frontend/index.html')
+    backupCards = backupFolder.objects.all()
+    context = {'status': status.upper(), 'backupCards': backupCards}
+    return HttpResponse(html.render(context, request))

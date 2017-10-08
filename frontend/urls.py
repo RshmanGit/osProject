@@ -7,4 +7,5 @@ urlpatterns =[
     url(r'^home/',views.home),
     url(r'^on/',views.runService),
     url(r'^off/',views.stopService),
+    url(r'^addcard/',views.addcard),
 ]
